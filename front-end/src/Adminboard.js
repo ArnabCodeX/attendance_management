@@ -32,7 +32,7 @@ function Adminboard(props) {
             Student Register
           </Button>
           <Button style={{ marginLeft: "20px", color: "white" }}>
-            Faculty Register
+            Teacher Register
           </Button>
           <LogoutIcon
             style={{
