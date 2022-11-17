@@ -2,6 +2,7 @@ import { Grid, Card, Container } from "@mui/material";
 import React, { useState } from "react";
 import ReactEcharts from "echarts-for-react";
 import StudentAddDialog from "./StudentAddDialog";
+import FacultyAddDialog from "./FacultyAddDialog";
 function AdminContent(props) {
   const option = {
     tooltip: {
@@ -48,6 +49,10 @@ function AdminContent(props) {
         <StudentAddDialog
           open={props.studentDialogOpen}
           setOpen={props.setStudentDialogOpen}
+        />
+         <FacultyAddDialog
+          open={props.facultyDialogOpen}
+          setOpen={props.setfacultyDialogOpen}
         />
         <Grid container spacing={2}>
           <Grid item xs={6}>
