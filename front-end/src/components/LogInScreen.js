@@ -39,9 +39,9 @@ function LogInScreen(props) {
       </RadioGroup>
       </FormControl>
       {/* <Button onClick={(prev)=>setValue(prev+1)}>Click</Button> */}
-      {isStudent === true && <SLogIn isValid={props.isValid} setIsValid = {props.setIsValid}/>}
-      {isFaculty === true && <FLogIn isValid={props.isValid} setIsValid = {props.setIsValid}/>}
-      {isAdmin === true && <LogIn isValid={props.isValid} setIsValid = {props.setIsValid}/>}
+      {isStudent === true && <SLogIn isValid={props.isStudentValid} setIsValid = {props.setIsStudentValid}/>}
+      {isFaculty === true && <FLogIn isValid={props.isFcaultyValid} setIsValid = {props.setIsFacultyValid}/>}
+      {isAdmin === true && <LogIn isValid={props.isAdminValid} setIsValid = {props.setIsAdminValid}/>}
     </div>
   )
 }

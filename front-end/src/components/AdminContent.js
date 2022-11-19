@@ -2,6 +2,7 @@ import { Grid, Card, Container } from "@mui/material";
 import React, { useState } from "react";
 import ReactEcharts from "echarts-for-react";
 import StudentAddDialog from "./StudentAddDialog";
+import FacultyAddDialog from "./FacultyAddDialog";
 function AdminContent(props) {
   const option = {
     tooltip: {
@@ -43,12 +44,16 @@ function AdminContent(props) {
   };
 
   return (
-    <div style={{ marginTop: "30px" }}>
+    <div style={{ marginTop: "30px", height:'100%'}}>
       <Container>
         <StudentAddDialog
           open={props.studentDialogOpen}
           setOpen={props.setStudentDialogOpen}
         />
+        <FacultyAddDialog
+          open={props.facultyDialogOpen}
+          setOpen={props.setfacultyDialogOpen}
+        /> 
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Card elevation={8} style={{ height: "270px" }}>

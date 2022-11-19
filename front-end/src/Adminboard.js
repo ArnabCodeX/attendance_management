@@ -6,6 +6,7 @@ import AdminContent from "./components/AdminContent";
 function Adminboard(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [studentDialogOpen, setStudentDialogOpen] = useState(false);
+  const [facultyDialogOpen, setfacultyDialogOpen] = useState(false);
   return (
     <div>
       <header
@@ -31,8 +32,10 @@ function Adminboard(props) {
           >
             Student Register
           </Button>
-          <Button style={{ marginLeft: "20px", color: "white" }}>
-            Teacher Register
+          <Button style={{ marginLeft: "20px", color: "white" }}
+          onClick={() => setfacultyDialogOpen(true)}
+          >
+            Faculty Register
           </Button>
           <LogoutIcon
             style={{
@@ -67,6 +70,8 @@ function Adminboard(props) {
       <AdminContent
         studentDialogOpen={studentDialogOpen}
         setStudentDialogOpen={setStudentDialogOpen}
+        facultyDialogOpen={facultyDialogOpen}
+        setfacultyDialogOpen={setfacultyDialogOpen}
       />
     </div>
   );

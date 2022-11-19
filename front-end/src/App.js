@@ -5,13 +5,16 @@ import LogInScreen from "./components/LogInScreen";
 import Adminboard from "./Adminboard";
 import { useState } from "react";
 function App() {
-  const [isValid, setIsValid] = useState(false);
+  const [isAdminValid, setIsAdminValid] = useState(false);
+  const [isStudentValid, setIsStudentValid] = useState(false);
+  const [isFacultyValid, setIsFacultyValid] = useState(false);
   return (
     <div className="App">
-      {isValid === false ? (
-        <LogInScreen isValid={isValid} setIsValid={setIsValid} />
+      {isAdminValid === false ? (
+        <LogInScreen isAdminValid={isAdminValid} setIsAdminValid={setIsAdminValid} isStudentValid = {isStudentValid}
+        setIsStudentValid = {setIsStudentValid} isFacultyValid={isFacultyValid}  setIsFacultyValid={setIsFacultyValid}/>
       ) : (
-        <Adminboard isValid={isValid} setIsValid={setIsValid} />
+        <Adminboard isValid={isAdminValid} setIsValid={setIsAdminValid} />
       )}
     </div>
   );
