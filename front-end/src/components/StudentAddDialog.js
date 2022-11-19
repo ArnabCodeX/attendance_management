@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
+import PasswordDialog from "./PasswordDialog";
  
 function StudentAddDialog(props) {
   const [s_name, setS_name] = useState("");
@@ -20,9 +21,13 @@ function StudentAddDialog(props) {
   const [s_FatherName, setS_FatherName] = useState("");
   const [s_MotherName, setS_MotherName] = useState("");
   const [s_GuardianPhoneNumber, setS_GuardianPhoneNumber] = useState("");
+  const [popen, setPopen] = useState(false);
+  const [s_name_updated, set_s_name_updated] = useState("");
   const handleAdd = () => {
     axios
-      .get(
+        
+    
+    .get(
         "http://localhost:8080/AttendanceManagement/studentDetailsAdd?s_name=" +
           s_name +
           "&s_Branch=" +
@@ -45,6 +50,10 @@ function StudentAddDialog(props) {
           s_GuardianPhoneNumber
       )
       .then((res) => console.log(res))
+      .then(() =>{
+        props.setOpen(false)
+        setPopen(true)
+      })
       .then(() => setS_name(""))
       .then(() => setS_Branch(""))
       .then(() => setS_Stream(""))
@@ -55,8 +64,6 @@ function StudentAddDialog(props) {
       .then(() => setS_FatherName(""))
       .then(() => setS_MotherName(""))
       .then(() => setS_GuardianPhoneNumber(""))
- 
-      .then(() => props.setOpen(false));
   };
   const handleClose = () => {
     setS_name("");
@@ -72,6 +79,10 @@ function StudentAddDialog(props) {
 
     props.setOpen(false);
   };
+  const handleStudentNameChange = (e)=>{
+    setS_name(e.target.value)
+    set_s_name_updated(e.target.value)
+  }
   return (
     <div>
       <Dialog
@@ -87,7 +98,7 @@ function StudentAddDialog(props) {
           <TextField
             variant="outlined"
             value={s_name}
-            onChange={(e) => setS_name(e.target.value)}
+            onChange={(e) => handleStudentNameChange(e)}
             label="Student Name"
             style={{ width: "200px", margin: "7px 5px 0 0" }}
           ></TextField>
@@ -164,6 +175,7 @@ function StudentAddDialog(props) {
           </Button>
         </DialogActions>
       </Dialog>
+      <PasswordDialog popen= {popen} setPopen= {setPopen} s_name = {s_name_updated}/>
     </div>
   );
 }
